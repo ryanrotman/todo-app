@@ -1,2 +1,3 @@
-# todo-app
-To-Do app with JavaScript
+# To-Do App
+
+To-Do app developed with JavaScript.
