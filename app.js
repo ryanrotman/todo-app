@@ -57,7 +57,6 @@ todoForm.addEventListener("submit", function addTodo(event) {
     if (todoText !== "") {
         todos.push(todoText);
     }
-    alert("Please enter in a to-do!");
     todoInput.value = "";
     storeTodo();
     renderTodos();
@@ -67,3 +66,23 @@ todoForm.addEventListener("submit", function addTodo(event) {
 function storeTodo() {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+// Completing/Deleting a todo
+todoList.addEventListener("click", function completeDeleteTodo(event) {
+    event.preventDefault();
+    console.log("BUTTON CLICK EVENT-----", event);
+    let targetIndex = event.target.dataset.index;
+    console.log("TARGET INDEX-----", targetIndex);
+    let currentTodo = todos[targetIndex];
+    console.log("CURRENT TODO-----", currentTodo);
+    let buttonClicked = event.target.dataset.value;
+    console.log(`${buttonClicked} clicked!`);
+    if (buttonClicked == "complete") {
+        console.log(`YOU CLICKED THE COMPLETE BUTTON FOR ${currentTodo}`);
+    } else if (buttonClicked == "delete") {
+        console.log(`YOU CLICKED THE DELETE BUTTON FOR ${currentTodo}`);
+        todos.splice(targetIndex, 1);
+    }
+    storeTodo();
+    renderTodos();
+})
