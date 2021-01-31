@@ -2,6 +2,8 @@
 let todoInput = document.querySelector("#todo-text");
 let todoForm = document.querySelector("#todo-form");
 let todoList = document.querySelector("#todo-list");
+let completeBtn = document.querySelector(".completeBtn");
+let deleteBtn = document.querySelector(".deleteBtn");
 
 // Empty array to hold todos
 let todos = [];
@@ -32,7 +34,7 @@ function renderTodos() {
         let tr = document.createElement("tr");
         tr.innerHTML = `
             <td>${todo}</td>
-            <td><button type="button" class="btn btn-warning">Complete</button>&nbsp<button type="button" class="btn btn-danger">Delete</button></td>
+            <td><button type="button" class="btn btn-warning completeBtn" data-value="complete" data-index=${i}>Complete</button>&nbsp<button type="button" class="btn btn-danger deleteBtn" data-value="delete" data-index=${i}>Delete</button></td>
         `
 
         // let completeBtn = document.createElement("button");
