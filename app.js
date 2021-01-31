@@ -46,3 +46,22 @@ function renderTodos() {
         todoList.appendChild(tr);
     }
 }
+
+// Submitting a todo
+todoForm.addEventListener("submit", function addTodo(event) {
+    event.preventDefault();
+    let todoText = todoInput.value;
+    console.log(todoText);
+    if (todoText !== "") {
+        todos.push(todoText);
+    }
+    alert("Please enter in a to-do!");
+    todoInput.value = "";
+    storeTodo();
+    renderTodos();
+})
+
+// Store todos in local storage
+function storeTodo() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
